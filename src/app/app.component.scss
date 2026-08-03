@@ -1,0 +1,25 @@
+@use 'helpers' as *;
+
+.loading-wrapper {
+  position: fixed;
+  @include flex-center;
+  z-index: 100;
+  inset: 0;
+}
+
+.loading-arrow {
+  width: rem(51);
+  height: rem(51);
+  animation: spin 1000ms linear infinite;
+
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

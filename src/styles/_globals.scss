@@ -1,0 +1,28 @@
+@use 'helpers' as *;
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition: var(--transition);
+}
+
+a {
+  color: inherit;
+
+  @include hover {
+    color: var(--color-green);
+  }
+}
+
+:focus-visible {
+  outline: #{rem(1)} dashed var(--color-black);
+  outline-offset: #{rem(2)};
+  transition-duration: 0s !important;
+}

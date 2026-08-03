@@ -1,0 +1,112 @@
+@use 'helpers' as *;
+
+.hero {
+  background-image: url('/images/hero/hero-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
+  display: flex;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    flex-grow: 1;
+    @include fluid(row-gap, 41, 20);
+    padding-bottom: rem(40);
+  }
+
+  &__title {
+    font-weight: 400;
+    @include fluid-text(50, 20);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: rem(40);
+    border-radius: var(--border-radius-big);
+    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.2);
+    column-gap: rem(24);
+
+    @include laptop-above {
+      width: 100%;
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: rem(20);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-s {
+      grid-template-columns: repeat(1, 1fr);
+      align-self: center;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    @include fluid(row-gap, 8, 4);
+  }
+
+  &__label {
+    order: 2;
+    font-weight: 400;
+    font-size: rem(14);
+    color: var(--color-white);
+  }
+
+  &__select,
+  &__input {
+    order: 1;
+  }
+
+  &__select,
+  &__input {
+    @include fluid(padding-block, 14, 8);
+    @include fluid(padding-left, 16, 10);
+    @include fluid(padding-right, 44, 32);
+    background: transparent;
+    border-radius: var(--border-radius-big);
+    border: rem(1) solid var(--color-white);
+    color: var(--color-white);
+  }
+
+  &__input {
+    padding-right: rem(12);
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url('/icons/hero/ep_arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right rem(10) center;
+    background-size: rem(20);
+  }
+
+  &__button {
+    @include mobile {
+      justify-self: start;
+    }
+  }
+
+  &__danger {
+    color: red;
+    order: 3;
+  }
+
+  option {
+    color: var(--color-black);
+  }
+}
