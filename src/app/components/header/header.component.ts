@@ -3,6 +3,7 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { BurgerComponent } from '../../shared/ui/burger/burger.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { INavigation } from '../../core/models/interfaces/INavigation';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,32 @@ export class HeaderComponent implements OnInit, OnDestroy {
   counter: number = 0;
   showTimer: boolean = true;
   liveInput: string = '';
+  navigation: INavigation[] = [
+    {
+      title: 'Главная',
+      link: 'home',
+    },
+    {
+      title: 'Про гида',
+      link: 'about-guide',
+    },
+    {
+      title: 'Программа тура',
+      link: 'tour-program',
+    },
+    {
+      title: 'Стоимость',
+      link: 'price',
+    },
+    {
+      title: 'Блог',
+      link: 'blog',
+    },
+    {
+      title: 'Контакты',
+      link: 'contacts',
+    },
+  ];
   ngOnInit() {
     this.date = new Date().toLocaleString();
     this.timerId = setInterval(() => {

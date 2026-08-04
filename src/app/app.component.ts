@@ -1,19 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 // import './training';
 import './collection';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Colors } from './core/enums/Color';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { Messages } from './core/enums/Messages';
+import { MessageServiceService } from './core/services/message-service.service';
+import { NgTemplateOutlet } from '@angular/common';
+import { LocalStorageService } from './core/services/local-storage.service';
+import { FooterComponent } from './components/footer/footer.component';
+import { MessageComponent } from './components/message/message.component';
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, HeroComponent, RouterOutlet],
+  imports: [
+    HeaderComponent,
+    HeroComponent,
+    RouterOutlet,
+    NotFoundComponent,
+    NgTemplateOutlet,
+    FooterComponent,
+    MessageComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   isLoading = true;
-
+  private readonly storage = inject(LocalStorageService);
   // Дз 15
   ngOnInit() {
     console.log(this.isCorrectColor(Colors.GREEN));
@@ -32,19 +47,19 @@ export class AppComponent implements OnInit {
 
   // Задача 3
   saveLastVisitDate(): void {
-    const date = new Date();
-    localStorage.setItem('lastSession', date.toLocaleString());
+    const date = new Date().toLocaleString();
+    this.storage.setItem('lastSession', date);
   }
 
   // Задача 4
   saveVisitCount(): void {
-    const savedCount = localStorage.getItem('visitCount');
+    const savedCount = this.storage.getItem('visitCount');
     let count: number;
     if (savedCount) {
       count = Number(savedCount);
     } else {
       count = 0;
     }
-    localStorage.setItem('visitCount', (count + 1).toString());
+    this.storage.setItem('visitCount', count + 1);
   }
 }

@@ -1,0 +1,94 @@
+@use 'helpers' as *;
+
+.travel-blog {
+  background: #f3f5f4;
+
+  &__inner {
+    @include fluid(padding-block, 90, 25);
+    display: flex;
+    flex-direction: column;
+    @include fluid(row-gap, 40, 15);
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include fluid(gap, 20, 8);
+
+    @include tablet {
+      grid-template-columns: repeat(1, 1fr)
+    }
+  }
+
+  &__card {
+    @include fluid(padding, 16, 8);
+    background-color: var(--color-white);
+    display: flex;
+    @include fluid(column-gap, 24, 12);
+    align-items: center;
+    border-radius: rem(10);
+    transition: var(--transition);
+
+    @include hover {
+      box-shadow: 0 0 15px 0 rgba(24, 18, 30, 0.12);
+
+      & h3 {
+        text-decoration: underline;
+        color: var(--color-green);
+      }
+    }
+  }
+
+  &__img {
+    @include tablet {
+      width: rem(150);
+      height: rem(200);
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    @include fluid(row-gap, 24, 12);
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-weight: 700;
+    @include fluid-text(24, 20);
+    line-height: 1.33333;
+    color: var(--color-black);
+    transition: var(--transition);
+  }
+
+  &__description {
+    font-weight: 400;
+    @include fluid-text(14, 12);
+    line-height: 1.42857;
+    color: var(--color-black);
+  }
+
+  &__publication {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__date {
+    font-weight: 700;
+    @include fluid-text(14, 12);
+    line-height: 1.42857;
+    color: var(--color-yellow);
+  }
+
+  &__link {
+    font-weight: 700;
+    @include fluid-text(14, 12);
+    line-height: 1.42857;
+    color: var(--color-green);
+    text-decoration: none;
+  }
+}

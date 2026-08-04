@@ -1,29 +1,16 @@
 <header class="header">
   <div class="header__inner container">
-    <a href="/" class="header__logo" aria-label="Logo" title="Logo">
+    <a [routerLink]="['/home']" class="header__logo" aria-label="Logo" title="Logo">
       <img src="/icons/header/logo.svg" class="header__logo-img" width="143" height="60">
     </a>
     <div class="header__overlay" [class.header__overlay--active]="isOpen" (click)="onClick()">
       <nav class="header__menu">
         <ul class="header__list">
+          @for (item of navigation; track item.link) {
           <li class="header__item">
-            <a routerLinkActive="header__link--active" routerLink="home" class="header__link">Главная</a>
+            <a routerLinkActive="header__link--active" [routerLink]="item.link" class="header__link">{{item.title}}</a>
           </li>
-          <li class="header__item">
-            <a routerLinkActive="header__link--active" routerLink="about-guide" class="header__link">Про гида</a>
-          </li>
-          <li class="header__item">
-            <a routerLinkActive="header__link--active" routerLink="tour-program" class="header__link">Программа тура</a>
-          </li>
-          <li class="header__item">
-            <a routerLinkActive="header__link--active" routerLink="price" class="header__link">Стоимость</a>
-          </li>
-          <li class="header__item">
-            <a routerLinkActive="header__link--active" routerLink="blog" class="header__link">Блог</a>
-          </li>
-          <li class="header__item">
-            <a routerLinkActive="header__link--active" routerLink="contacts" class="header__link">Контакты</a>
-          </li>
+          }
         </ul>
       </nav>
       <app-button variant="white">Консультация</app-button>

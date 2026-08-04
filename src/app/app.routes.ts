@@ -5,6 +5,7 @@ import { TourProgramComponent } from './pages/tour-program/tour-program.componen
 import { PriceComponent } from './pages/price/price.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent,
+    component: NotFoundComponent,
   },
 ];

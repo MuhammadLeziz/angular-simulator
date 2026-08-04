@@ -1,0 +1,19 @@
+<section class="photo-report">
+  <div class="photo-report__inner container">
+    <app-section-heading variant="center" label="фото-отчет" title="Делимся впечатлениями"></app-section-heading>
+    <div class="photo-report__images">
+      <ng-container [ngTemplateOutlet]="imgContainer">
+      </ng-container>
+    </div>
+    <app-button (click)="messages.showError( 'Не удалось перейти на сайт')">Наш pinterest</app-button>
+  </div>
+</section>
+
+<ng-template #imgContainer>
+  <img src="/images/photo-report/image-1.jpg" alt="" width="580" height="250" class="photo-report__image">
+  <img src="/images/photo-report/image-2.jpg" alt="" width="280" height="250" class="photo-report__image">
+  <img src="/images/photo-report/image-3.jpg" alt="" width="280" height="250" class="photo-report__image">
+  <img src="/images/photo-report/image-4.jpg" alt="" width="280" height="250" class="photo-report__image">
+  <img src="/images/photo-report/image-5.jpg" alt="" width="580" height="250" class="photo-report__image">
+  <img src="/images/photo-report/image-6.jpg" alt="" width="280" height="250" class="photo-report__image">
+</ng-template>

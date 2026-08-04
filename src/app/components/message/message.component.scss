@@ -1,0 +1,47 @@
+@use 'helpers' as *;
+
+.messages {
+  position: fixed;
+  top: rem(64);
+  right: rem(64);
+  z-index: 1000;
+}
+
+.message {
+  padding: rem(15);
+  background: rgba(15, 23, 42, 0.85);
+  border: rem(1) solid #fff;
+  border-radius: rem(10);
+  display: flex;
+  justify-content: space-between;
+
+
+  &__content {
+    display: flex;
+    column-gap: rem(15);
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 1.25;
+    color: #e8e9eb;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: rem(14);
+    line-height: 1.42857;
+    color: #e8e9eb;
+  }
+
+  &__button {
+    background: transparent;
+    background-image: url('/icons/message-delete-icon.svg');
+    border: none;
+    cursor: pointer;
+    @include square(rem(20));
+    align-self: flex-start;
+  }
+}

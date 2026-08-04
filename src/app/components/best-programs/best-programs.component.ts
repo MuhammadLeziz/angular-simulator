@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { IPrograms } from '../../core/models/interfaces/IPrograms';
 import { JsonPipe } from '@angular/common';
+import { SectionHeadingComponent } from '../../shared/ui/section-heading/section-heading.component';
+import { Messages } from '../../core/enums/Messages';
+import { MessageServiceService } from '../../core/services/message-service.service';
 
 @Component({
   selector: 'app-best-programs',
-  imports: [ButtonComponent, JsonPipe],
+  imports: [ButtonComponent, JsonPipe, SectionHeadingComponent],
   templateUrl: './best-programs.component.html',
   styleUrl: './best-programs.component.scss',
 })
 export class BestProgramsComponent {
+  readonly Messages = Messages;
+  protected readonly message = inject(MessageServiceService);
   programs: IPrograms[] = [
     {
       id: 1,
