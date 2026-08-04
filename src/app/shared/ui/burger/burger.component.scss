@@ -1,0 +1,63 @@
+@use 'helpers' as *;
+
+.burger {
+  position: relative;
+  width: rem(32);
+  height: rem(24); // высота = сумма отступов между линиями
+  cursor: pointer;
+  z-index: 101;
+
+  span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: rem(2);
+    background-color: var(--color-white);
+    transition: var(--transition);
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      translate: 0 -50%;
+    }
+
+    &:nth-child(3) {
+      bottom: 0;
+    }
+  }
+
+  @include hover {
+    span {
+      background-color: var(--color-green);
+    }
+  }
+
+  &--active {
+    span {
+      &:nth-child(1) {
+        top: 50%;
+        translate: 0 -50%;
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0; // средняя линия просто исчезает
+      }
+
+      &:nth-child(3) {
+        bottom: 50%;
+        translate: 0 50%;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.burger:focus-visible {
+  outline: #{rem(1)} dashed var(--color-black);
+  outline-offset: #{rem(2)};
+  transition-duration: 0s !important;
+}

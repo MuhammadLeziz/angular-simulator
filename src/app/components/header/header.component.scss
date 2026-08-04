@@ -1,0 +1,130 @@
+@use 'helpers' as *;
+
+.header {
+  box-shadow: 0 rem(2) rem(4) 0 rgba(0, 0, 0, 0.25);
+  background: rgba(24, 18, 30, 0.5);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: rem(30);
+  }
+
+  &__logo {
+    @include fluid(width, 143, 100);
+    margin-right: rem(12);
+    cursor: pointer;
+  }
+
+  &__overlay {
+    @include mobile-above {
+      display: contents;
+    }
+
+    @include mobile {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: var(--color-green);
+      translate: 100% 0;
+      transition: var(--transition);
+
+      &--active {
+        translate: 0 0;
+      }
+
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: rem(24);
+    }
+
+  }
+
+  &__list {
+    @include mobile-above {
+      display: flex;
+      align-items: center;
+      @include fluid(column-gap, 24, 6);
+      margin-right: rem(12);
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: rem(8);
+    }
+  }
+
+  &__link {
+    @include hover {
+      color: var(--color-green);
+    }
+
+    transition: var(--transition);
+    text-decoration: none;
+    @include flex-center;
+    height: rem(48);
+    font-weight: 600;
+    @include fluid-text(18, 14);
+    color: var(--color-white);
+
+    @include mobile {
+      justify-content: center;
+      height: rem(44);
+    }
+
+    &--active {
+      color: var(--color-green);
+    }
+  }
+
+
+}
+
+.zadachi {
+  display: flex;
+  column-gap: rem(32);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  display: flex;
+  column-gap: rem(12);
+  cursor: pointer;
+  align-items: center;
+
+  button {
+    color: var(--color-black);
+  }
+}
+
+.timer {
+  color: var(--color-white);
+}
+
+.minus,
+.plus {
+  border: none;
+  border-radius: 50%;
+}
+
+.live-input {
+  @include fluid(padding-block, 14, 8);
+  @include fluid(padding-left, 16, 10);
+  @include fluid(padding-right, 44, 32);
+  background: transparent;
+  border-radius: var(--border-radius-big);
+  border: rem(1) solid var(--color-white);
+  color: var(--color-white);
+  margin-right: rem(12);
+}
