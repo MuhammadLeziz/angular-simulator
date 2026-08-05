@@ -1,0 +1,26 @@
+<section class="travel-blog">
+  <div class="travel-blog__inner container">
+    <app-section-heading label="делимся впечатлениями" title="Блог о путешествиях"
+      variant="center"></app-section-heading>
+    <ul class="travel-blog__list">
+      @for (item of travels; track item.id) {
+      <li class="travel-blog__item">
+        <article class="travel-blog__card">
+          <img src="{{item.image}}" alt="{{item.title}}" class="travel-blog__img" width="230" height="280">
+          <div class="travel-blog__content">
+            <h3 class="travel-blog__title">{{item.title}}</h3>
+            <div class="travel-blog__description">
+              <p>{{item.description}}</p>
+            </div>
+            <div class="travel-blog__publication">
+              <time [attr.datetime]="item.date" class="travel-blog__date">{{item.date}}</time>
+              <a [href]="item.link" class="travel-blog__link">{{item.link}}</a>
+            </div>
+          </div>
+        </article>
+      </li>
+      }
+    </ul>
+    <app-button (click)="message.showError('Материалы недоступны')">Другие материалы</app-button>
+  </div>
+</section>

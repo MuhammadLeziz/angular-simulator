@@ -1,0 +1,20 @@
+<section class="not-found">
+  <div class="not-found__inner container">
+    <div class="not-found__mountains">
+      <svg class="not-found__mountain not-found__mountain--back" width="220" height="140" viewBox="0 0 220 140"
+        fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 140L60 40L100 90L150 20L220 140H0Z" fill="currentColor" />
+      </svg>
+      <svg class="not-found__mountain not-found__mountain--front" width="180" height="110" viewBox="0 0 180 110"
+        fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 110L50 30L90 70L130 10L180 110H0Z" fill="currentColor" />
+      </svg>
+    </div>
+
+    <h1 class="not-found__code">404</h1>
+    <h2 class="not-found__title">Кажется, вы сбились с маршрута</h2>
+    <p class="not-found__text">Такой страницы не существует — возможно, она была перемещена или удалена.</p>
+
+    <app-button [routerLink]="['/home']">На главную</app-button>
+  </div>
+</section>

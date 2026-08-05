@@ -2,8 +2,8 @@
 
 .button {
   border-radius: var(--border-radius);
-  @include fluid(padding-block, 16, 12);
-  @include fluid(padding-inline, 36, 26);
+  @include fluid(padding-block, 16, 6);
+  @include fluid(padding-inline, 36, 16);
   background-color: var(--color-green);
   border: none;
   font-weight: 700;

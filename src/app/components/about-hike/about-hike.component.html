@@ -23,17 +23,16 @@
     </div>
 
     <div class="about-hike__content">
-      <div class="about-hike__text">
-        <span class="about-hike__label">о нашем походе</span>
-        <h2 class="about-hike__title">Исследуйте все горные массивы мира вместе с нами</h2>
-      </div>
+      <app-section-heading label="о нашем походе"
+        title="Исследуйте все горные массивы мира вместе с нами"></app-section-heading>
       <div class="about-hike__description">
         <p>Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
           Ричард
           МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджинии, взял одно из самых странных слов в
           Lorem Ipsum, "consectetur" и занялся его поисками в классической латинской литературе.</p>
       </div>
-      <app-button variant="green">Программа тура</app-button>
+      <app-button variant="green" (click)="message.showWarn('Программа недоступна')">Программа
+        тура</app-button>
     </div>
   </div>
 </section>

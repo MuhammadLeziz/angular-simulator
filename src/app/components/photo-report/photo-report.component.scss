@@ -1,0 +1,42 @@
+@use 'helpers' as *;
+
+.photo-report {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    @include fluid(row-gap, 40, 15);
+    align-items: center;
+    @include fluid(padding-top, 90, 30);
+    padding-bottom: rem(90);
+
+    @include tablet {
+      padding-bottom: rem(60);
+    }
+
+    @include mobile {
+      padding-bottom: rem(70);
+    }
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include fluid(gap, 20, 4);
+    width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: rem(6);
+
+    &:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    &:nth-child(5) {
+      grid-column: span 2;
+    }
+  }
+}

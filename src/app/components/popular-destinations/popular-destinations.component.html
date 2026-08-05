@@ -1,0 +1,27 @@
+<section class="popular-destinations">
+  <div class="popular-destinations__inner container">
+    <app-section-heading variant="center" label="по версии отдыхающих"
+      title="Популярные направления"></app-section-heading>
+    <ul class="popular-destinations__list">
+      @for (item of destination; track item.id) {
+      <li class="popular-destinations__item">
+        <div class="popular-destinations__card">
+          <img class="popular-destinations__image" src="{{item.image}}" alt="" width="380" height="500">
+          <div class="popular-destinations__rating-box">
+            <img class="popular-destinations__star" src="{{item.star}}" alt="">
+            <span class="popular-destinations__rating">{{item.rating}}</span>
+          </div>
+          <div class="popular-destinations__content">
+            <div class="popular-destinations__text">
+              <h3 class="popular-destinations__title">{{item.title}}</h3>
+              <p class="popular-destinations__subtitle">{{item.subtitle}}</p>
+            </div>
+            <p class="popular-destinations__price">{{item.price}}</p>
+          </div>
+        </div>
+      </li>
+      }
+    </ul>
+    <app-button (click)="message.showSuccess('Направления получены')">Рейтинг направлений</app-button>
+  </div>
+</section>

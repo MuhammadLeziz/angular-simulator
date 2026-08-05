@@ -1,10 +1,7 @@
 <section class="best-programs">
   <div class="best-programs__inner container">
     <div class="best-programs__content">
-      <div class="best-programs__text">
-        <span class="best-programs__label">о нашем походе</span>
-        <h2 class="best-programs__title">Лучшие программы для тебя</h2>
-      </div>
+      <app-section-heading label="наше предложение" title="Лучшие программы для тебя"></app-section-heading>
       <div class="best-programs__description">
         <p>Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
           Ричард МакКлинток, профессор латыни из колледжа.</p>
@@ -24,7 +21,8 @@
         </li>
         }
       </ul>
-      <app-button class="best-programs__button">Стоимость программ</app-button>
+      <app-button class="best-programs__button" (click)="message.showInfo('Стоимость отправлена на почту')">Стоимость
+        программ</app-button>
     </div>
     <div class="best-programs__images">
       <img src="/images/best-programs/image1.jpg" alt="Чашка кофе на фоне скалистого пляжа" width="250" height="250"
