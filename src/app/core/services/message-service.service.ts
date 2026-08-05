@@ -34,7 +34,7 @@ export class MessageServiceService {
   }
 
   showInfo(text: string) {
-    this.addMessage(Messages.SUCCESS, text);
+    this.addMessage(Messages.INFO, text);
   }
 
   closeMessage(id: number) {
