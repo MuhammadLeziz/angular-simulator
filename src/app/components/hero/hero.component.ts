@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoaderServiceService } from '../../core/services/loader-service.service';
 
 @Component({
   selector: 'app-hero',
@@ -9,6 +10,7 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
+  readonly loader = inject(LoaderServiceService);
   formBuilder = inject(FormBuilder);
   form = this.formBuilder.group({
     location: ['', [Validators.required]],

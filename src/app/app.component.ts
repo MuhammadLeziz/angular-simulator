@@ -12,6 +12,8 @@ import { NgTemplateOutlet } from '@angular/common';
 import { LocalStorageService } from './core/services/local-storage.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { MessageComponent } from './components/message/message.component';
+import { LoaderComponentComponent } from './components/loader-component/loader-component.component';
+import { UsersComponent } from './components/users/users.component';
 @Component({
   selector: 'app-root',
   imports: [
@@ -22,6 +24,8 @@ import { MessageComponent } from './components/message/message.component';
     NgTemplateOutlet,
     FooterComponent,
     MessageComponent,
+    LoaderComponentComponent,
+    UsersComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
