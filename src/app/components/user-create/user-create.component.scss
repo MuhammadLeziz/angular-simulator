@@ -1,0 +1,128 @@
+@use 'helpers' as *;
+
+.user-create {
+  padding-block: rem(60);
+
+  &__inner {
+    max-width: rem(900);
+  }
+
+  &__title {
+    margin-bottom: rem(40);
+    text-align: center;
+    font-size: rem(32);
+    font-weight: 700;
+    color: var(--color-dark, #263b3b);
+  }
+}
+
+.user-form {
+  padding: rem(32);
+  border-radius: rem(12);
+  background-color: #fff;
+  box-shadow: 0 rem(4) rem(20) rgba(0, 0, 0, 0.08);
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: rem(32);
+      padding-bottom: rem(32);
+      border-bottom: rem(1) solid #e3e8e8;
+    }
+  }
+
+  &__heading {
+    margin-bottom: rem(20);
+    font-size: rem(20);
+    font-weight: 700;
+    color: #263b3b;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20);
+
+    &--small {
+      max-width: rem(600);
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+
+    label {
+      font-size: rem(14);
+      font-weight: 600;
+      color: #526565;
+    }
+
+    input {
+      width: 100%;
+      padding: rem(12) rem(14);
+      border: rem(1) solid #d8dfdf;
+      border-radius: rem(6);
+      outline: none;
+      font: inherit;
+      color: #263b3b;
+      background-color: #fff;
+      transition: var(--transition);
+
+      &::placeholder {
+        color: #9aa6a6;
+      }
+
+      &:focus {
+        border-color: #789090;
+      }
+    }
+  }
+
+  &__submit {
+    display: block;
+    margin-inline: auto;
+    padding: rem(12) rem(28);
+    border: none;
+    border-radius: rem(6);
+    background-color: #b95b5b;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+
+    @include hover {
+      background-color: #789090;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: #9aa6a6;
+
+      @include hover {
+        background-color: #9aa6a6;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-create {
+    padding-block: rem(30);
+
+    &__title {
+      margin-bottom: rem(25);
+      font-size: rem(26);
+    }
+  }
+
+  .user-form {
+    padding: rem(20);
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
