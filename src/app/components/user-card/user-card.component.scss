@@ -1,0 +1,144 @@
+@use 'helpers' as *;
+
+.users {
+  padding: rem(30) 0 rem(60);
+
+  &__inner {
+    max-width: rem(920);
+  }
+
+  &__title {
+    margin: 0 0 rem(30);
+    text-align: center;
+    font-size: rem(28);
+    font-weight: 700;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(24) rem(20);
+  }
+
+  &__empty {
+    width: fit-content;
+    margin: rem(20) auto 0;
+    padding: rem(15) rem(20);
+    border-radius: rem(6);
+    background: #b95b5b;
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.user-card {
+  padding: rem(16);
+  background: #fff;
+  border-top: rem(2) solid #dca66e;
+  box-shadow: 0 rem(2) rem(10) rgba(0, 0, 0, 0.08);
+
+  &__name {
+    margin: 0;
+    font-size: rem(18);
+    font-weight: 700;
+  }
+
+  &__username {
+    margin-top: rem(2);
+    color: #d88c4c;
+    font-size: rem(13);
+  }
+
+  &__section {
+    margin-top: rem(20);
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    margin: 0 0 rem(10);
+    font-size: rem(12);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #dce2e2;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: rem(10);
+    margin-top: rem(8);
+    font-size: rem(11);
+
+    >span:first-child {
+      flex-shrink: 0;
+      color: #789090;
+    }
+
+    >span:last-child,
+    >a {
+      text-align: right;
+      color: #263f40;
+      font-weight: 600;
+    }
+
+    >a {
+      color: #d88c4c;
+      text-decoration: none;
+    }
+  }
+
+  &__coordinates {
+    display: flex;
+    gap: rem(4);
+
+    span {
+      padding: rem(3) rem(5);
+      background: #edf1f1;
+      border: 1px solid #dce2e2;
+      border-radius: rem(2);
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .users {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .users {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.user-card__button {
+  margin-top: rem(20);
+  @include flex-center;
+  margin-inline: auto;
+  border: none;
+  background-color: #b95b5b;
+  border-radius: rem(6);
+  padding: rem(6) rem(12);
+  transition: var(--transition);
+
+  @include hover {
+    background-color: #789090;
+    color: #dce2e2;
+  }
+}
