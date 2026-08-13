@@ -40,3 +40,14 @@
     }
   }
 }
+
+:host-context(.dark) {
+  .photo-report {
+    background-color: var(--color-black);
+    opacity: 1;
+  }
+
+  :host::ng-deep .section-heading__title {
+    color: var(--color-white);
+  }
+}

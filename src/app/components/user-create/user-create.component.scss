@@ -126,3 +126,10 @@
     }
   }
 }
+
+:host-context(.dark) {
+  .user-create {
+    background-color: var(--color-black);
+    opacity: 1;
+  }
+}

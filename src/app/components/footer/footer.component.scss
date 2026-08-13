@@ -163,9 +163,15 @@
       height: rem(32);
       border-radius: 50%;
       color: var(--color-white);
+      font-size: rem(24);
+      transition: var(--transition);
 
-      & path:hover {
-        fill: var(--color-yellow);
+      :host::ng-deep path {
+        transition: var(--transition);
+      }
+
+      &:hover {
+        color: var(--color-yellow);
       }
     }
 
@@ -226,6 +232,33 @@
   }
 }
 
-.text-danger {
-  color: red;
+:host-context(.dark) {
+  .footer-top {
+    background-color: var(--color-black);
+    opacity: 1;
+
+    &__inner {
+      background-color: var(--color-black);
+      opacity: 1;
+      box-shadow: 0 0 rem(5) 0 var(--color-white);
+    }
+
+    &__label {
+      color: var(--color-white);
+    }
+
+    &__policy {
+      color: var(--color-white);
+    }
+  }
+
+  .footer-main {
+    background-color: var(--color-black);
+    opacity: 1;
+    border-bottom: rem(1) solid var(--color-white);
+  }
+
+  :host::ng-deep .section-heading__title {
+    color: var(--color-white);
+  }
 }
