@@ -7,13 +7,15 @@
 <ng-template #messageTemp let-item>
   <div class="message">
     <div class="message__content">
-      <img src="/icons/message-icon.svg" alt="" width="40" height="40">
+      <fa-icon class="message__icon" [icon]="faMessage"></fa-icon>
       <div class="message__text">
         <div class="message__title">{{item.type}}</div>
         <p class="message__subtitle">{{item.text}}</p>
       </div>
     </div>
-    <button class="message__button" (click)="this.message.closeMessage(item.id)"></button>
+    <button class="message__button" (click)="this.message.closeMessage(item.id)">
+      <fa-icon [icon]="faClose"></fa-icon>
+    </button>
 
   </div>
 </ng-template>

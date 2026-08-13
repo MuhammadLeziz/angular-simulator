@@ -17,6 +17,28 @@
     </div>
     <app-burger class="visible-mobile" [isActive]="isOpen" (click)="onClick()"></app-burger>
   </div>
+
+  <div class="header__theme-controls container" style="display: flex; gap: 16px; align-items: center; justify-content: center; margin-block: 10px;">
+    <p-toggleswitch [(ngModel)]="checked" (onChange)="themeService.toggleTheme()">
+      <ng-template #handle let-checked="checked">
+        @if (checked) {
+        <fa-icon [icon]="faMoon"></fa-icon>
+        } @else {
+        <fa-icon [icon]="faSun"></fa-icon>
+        }
+      </ng-template>
+    </p-toggleswitch>
+
+    <p-selectbutton
+      [options]="presetOptions"
+      [(ngModel)]="selectedPreset"
+      optionLabel="label"
+      optionValue="value"
+      (onChange)="onPresetChange($event.value)"
+      [allowEmpty]="false"
+    />
+  </div>
+
   <div class="container zadachi">
     @if (showTimer) {
     <div class="timer">

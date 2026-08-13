@@ -121,3 +121,26 @@
     }
   }
 }
+
+:host-context(.dark) {
+  .best-programs {
+    background-color: var(--color-black);
+    opacity: 1;
+
+    &__description {
+      color: var(--color-white) !important;
+    }
+
+    &__item-title {
+      color: var(--color-white);
+    }
+
+    &__item-description {
+      color: var(--color-white);
+    }
+  }
+
+  :host::ng-deep .section-heading__title {
+    color: var(--color-white);
+  }
+}

@@ -4,10 +4,12 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { IDestination } from '../../core/models/interfaces/IDestination';
 import { MessageServiceService } from '../../core/services/message-service.service';
 import { Messages } from '../../core/enums/Messages';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-popular-destinations',
-  imports: [SectionHeadingComponent, ButtonComponent],
+  imports: [SectionHeadingComponent, ButtonComponent, FontAwesomeModule],
   templateUrl: './popular-destinations.component.html',
   styleUrl: './popular-destinations.component.scss',
 })
@@ -43,4 +45,5 @@ export class PopularDestinationsComponent {
       star: '/icons/destination/ic_round-star.svg',
     },
   ];
+  faStar = faStar;
 }

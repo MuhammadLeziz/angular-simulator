@@ -1,17 +1,48 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { BurgerComponent } from '../../shared/ui/burger/burger.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { INavigation } from '../../core/models/interfaces/INavigation';
+import { ThemeService } from '../../core/services/theme.service';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-header',
-  imports: [ButtonComponent, BurgerComponent, RouterLink, RouterLinkActive, FormsModule],
+  imports: [
+    ButtonComponent,
+    BurgerComponent,
+    RouterLink,
+    RouterLinkActive,
+    FormsModule,
+    ToggleSwitchModule,
+    SelectButtonModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  faMoon = faMoon;
+  faSun = faSun;
+  themeService = inject(ThemeService);
+  checked = this.themeService.getCurrentTheme() === 'dark';
+
+  presetOptions = [
+    { label: 'Aura', value: 'Aura' },
+    { label: 'Lara', value: 'Lara' },
+    { label: 'Nora', value: 'Nora' },
+  ];
+  selectedPreset = this.themeService.getSavedPreset();
+
+  onPresetChange(preset: string) {
+    if (preset) {
+      this.themeService.setPreset(preset);
+    }
+  }
   isOpen: boolean = false;
   timerId!: number;
   date!: string;

@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MessageComponent } from './components/message/message.component';
 import { LoaderComponentComponent } from './components/loader-component/loader-component.component';
 import { UsersComponent } from './components/users/users.component';
+import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-root',
   imports: [
@@ -26,6 +27,7 @@ import { UsersComponent } from './components/users/users.component';
     MessageComponent,
     LoaderComponentComponent,
     UsersComponent,
+    ButtonModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

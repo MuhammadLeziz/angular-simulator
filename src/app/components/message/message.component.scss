@@ -22,6 +22,10 @@
     align-items: center;
   }
 
+  &__icon {
+    font-size: rem(24);
+  }
+
   &__title {
     font-weight: 700;
     font-size: rem(16);
@@ -38,7 +42,8 @@
 
   &__button {
     background: transparent;
-    background-image: url('/icons/message-delete-icon.svg');
+    color: #fff;
+    font-size: rem(18);
     border: none;
     cursor: pointer;
     @include square(rem(20));
