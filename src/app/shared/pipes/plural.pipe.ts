@@ -6,18 +6,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PluralPipe implements PipeTransform {
   transform<T extends string | number>(
     num: T,
-    word1: 'пользователь',
-    word2: 'пользователя',
-    word3: 'пользователей',
-  ) {
-    if (num == 11 || num == 12 || num == 13 || num == 14) return `${num} ${word3}`;
-    if (num.toString().split('').slice(-1).join('') === '1' && num != 11) return `${num} ${word1}`;
-    if (
-      num.toString().split('').slice(-1).join('') === '2' ||
-      num.toString().split('').slice(-1).join('') === '3' ||
-      (num.toString().split('').slice(-1).join('') === '4' && num != 12 && num != 13 && num != 14)
-    )
-      return `${num} ${word2}`;
+    word1: string,
+    word2: string,
+    word3: string,
+  ): string {
+    const number = Number(num);
+    if (isNaN(number)) return `${num} ${word3}`;
+    const last2 = Math.abs(number) % 100;
+    const last1 = Math.abs(number) % 10;
+    if (last2 === 11 || last2 === 12 || last2 === 13 || last2 === 14) return `${num} ${word3}`;
+    if (last1 === 1) return `${num} ${word1}`;
+    if (last1 === 2 || last1 === 3 || last1 === 4) return `${num} ${word2}`;
     else return `${num} ${word3}`;
   }
 }
