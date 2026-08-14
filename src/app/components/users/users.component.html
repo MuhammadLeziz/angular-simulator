@@ -1,4 +1,5 @@
 <section class="users">
+  <div class="text-center  text-success">{{usersCount | plural:'пользователь':'пользователя':'пользователей'}}</div>
   <div class="users__inner container">
     <h1 class="users__title">Список Пользователей</h1>
     <app-usersfilter (filteredString)="filterCards($event)"></app-usersfilter>
