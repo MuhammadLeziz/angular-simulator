@@ -3,10 +3,12 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserApiServiceService } from '../../core/services/user-api-service.service';
 import { UserServiceService } from '../../core/services/user-service.service';
 import { IUser } from '../../core/models/interfaces/IUser';
+import { BoldOnHoverDirective } from '../../shared/directives/bold-on-hover.directive';
+import { GradientBorderDirective } from '../../shared/directives/gradient-border.directive';
 
 @Component({
   selector: 'app-user-create',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, BoldOnHoverDirective, GradientBorderDirective],
   templateUrl: './user-create.component.html',
   styleUrl: './user-create.component.scss',
 })
