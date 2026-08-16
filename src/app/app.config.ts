@@ -6,16 +6,17 @@ import {
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
+import { httpInterceptorInterceptor } from './core/interceptors/http.interceptor.interceptor';
+import { backendInterceptorInterceptor } from './core/interceptors/backend.interceptor.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideZoneChangeDetection(),
-    provideHttpClient(),
     providePrimeNG({
       theme: {
         preset: Aura,
@@ -24,5 +25,8 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    provideHttpClient(
+      withInterceptors([httpInterceptorInterceptor, backendInterceptorInterceptor]),
+    ),
   ],
 };
