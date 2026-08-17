@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { postResolverResolver } from './features/posts/resolvers/post.resolver.resolver';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,30 @@ export const routes: Routes = [
     path: 'contacts',
     loadComponent: () =>
       import('../app/pages/contacts/contacts.component').then((m) => m.ContactsComponent),
+  },
+  {
+    path: 'posts',
+    loadComponent: () =>
+      import('../app/features/posts/components/posts/posts.component').then(
+        (m) => m.PostsComponent,
+      ),
+  },
+  {
+    path: 'posts/create',
+    loadComponent: () =>
+      import('../app/features/posts/components/post-create/post-create.component').then(
+        (m) => m.PostCreateComponent,
+      ),
+  },
+  {
+    path: 'posts/:id',
+    loadComponent: () =>
+      import('../app/features/posts/components/post-detail/post-detail.component').then(
+        (m) => m.PostDetailComponent,
+      ),
+    resolve: {
+      post: postResolverResolver,
+    },
   },
   {
     path: '**',
