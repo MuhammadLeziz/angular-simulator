@@ -1,5 +1,7 @@
 import {
   ApplicationConfig,
+  inject,
+  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
@@ -13,6 +15,8 @@ import { httpInterceptorInterceptor } from './core/interceptors/http.interceptor
 import { backendInterceptorInterceptor } from './core/interceptors/backend.interceptor.interceptor';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DialogService } from 'primeng/dynamicdialog';
+import { authInterceptor } from './features/auth/interceptors/auth.interceptor';
+import { AuthService } from './features/auth/services/auth.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,8 +33,16 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     provideHttpClient(
-      withInterceptors([httpInterceptorInterceptor, backendInterceptorInterceptor]),
+      withInterceptors([
+        httpInterceptorInterceptor,
+        backendInterceptorInterceptor,
+        authInterceptor,
+      ]),
     ),
     provideAnimationsAsync(),
+    provideAppInitializer(() => {
+      const authService = inject(AuthService);
+      return authService.getMe();
+    }),
   ],
 };

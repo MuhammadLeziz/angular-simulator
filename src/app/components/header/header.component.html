@@ -18,7 +18,8 @@
     <app-burger class="visible-mobile" [isActive]="isOpen" (click)="onClick()"></app-burger>
   </div>
 
-  <div class="header__theme-controls container" style="display: flex; gap: 16px; align-items: center; justify-content: center; margin-block: 10px;">
+  <div class="header__theme-controls container"
+    style="display: flex; gap: 16px; align-items: center; justify-content: center; margin-block: 10px;">
     <p-toggleswitch [(ngModel)]="checked" (onChange)="themeService.toggleTheme()">
       <ng-template #handle let-checked="checked">
         @if (checked) {
@@ -29,14 +30,8 @@
       </ng-template>
     </p-toggleswitch>
 
-    <p-selectbutton
-      [options]="presetOptions"
-      [(ngModel)]="selectedPreset"
-      optionLabel="label"
-      optionValue="value"
-      (onChange)="onPresetChange($event.value)"
-      [allowEmpty]="false"
-    />
+    <p-selectbutton [options]="presetOptions" [(ngModel)]="selectedPreset" optionLabel="label" optionValue="value"
+      (onChange)="onPresetChange($event.value)" [allowEmpty]="false" />
   </div>
 
   <div class="container zadachi">
@@ -60,6 +55,14 @@
     <app-button variant="white" (click)="showTimerOrCounter()">
       {{showTimer ? 'Показать счетчик' : 'Показать таймер'}}
     </app-button>
+    <app-button variant="white" (click)="authService.logout()">
+      Выйти с аккаунта
+    </app-button>
   </div>
-
+  @if (authService.user$ | async; as user) {
+  <div>
+    <img src={{user.image}} alt="Avatar">
+    <span class="text-success">{{user.firstName}} {{user.lastName}}</span>
+  </div>
+  }
 </header>
