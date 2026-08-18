@@ -8,4 +8,5 @@ export interface IAuth {
   image: string;
   accessToken: string;
   refreshToken: string;
+  role?: string;
 }
