@@ -3,7 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import './collection';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Colors } from './core/enums/Color';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { Messages } from './core/enums/Messages';
@@ -15,6 +15,8 @@ import { MessageComponent } from './components/message/message.component';
 import { LoaderComponentComponent } from './components/loader-component/loader-component.component';
 import { UsersComponent } from './components/users/users.component';
 import { ButtonModule } from 'primeng/button';
+import { AuthService } from './features/auth/services/auth.service';
+import { LoginComponent } from './features/auth/components/login/login.component';
 @Component({
   selector: 'app-root',
   imports: [
@@ -28,11 +30,13 @@ import { ButtonModule } from 'primeng/button';
     LoaderComponentComponent,
     UsersComponent,
     ButtonModule,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  router = inject(Router);
   isLoading = true;
   private readonly storage = inject(LocalStorageService);
   // Дз 15

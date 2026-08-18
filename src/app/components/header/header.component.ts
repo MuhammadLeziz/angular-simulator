@@ -9,6 +9,8 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthService } from '../../features/auth/services/auth.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -21,11 +23,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ToggleSwitchModule,
     SelectButtonModule,
     FontAwesomeModule,
+    AsyncPipe,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  authService = inject(AuthService);
   faMoon = faMoon;
   faSun = faSun;
   themeService = inject(ThemeService);

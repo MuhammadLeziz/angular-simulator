@@ -1,0 +1,7 @@
+@use 'helpers' as *;
+
+.top-right {
+  position: fixed;
+  top: rem(32);
+  right: rem(28);
+}
