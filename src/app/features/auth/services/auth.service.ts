@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { ILogin } from '../interfaces/ILogin';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { IAuth } from '../interfaces/iauth';
 import { Router } from '@angular/router';
 
@@ -58,8 +58,15 @@ export class AuthService {
   }
 
   getMe() {
+    if (!this.getToken()) {
+      return of(null);
+    }
     return this.http
       .get<IAuth>(environment.GET_AUTH_USER_API_URL)
       .pipe(tap((res) => this.$userSubject.next(res)));
+  }
+
+  checkRole() {
+    return this.$userSubject.value?.role === 'admin';
   }
 }
