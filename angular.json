@@ -3,7 +3,10 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -15,13 +18,33 @@
           "style": "scss",
           "skipTests": true
         },
-        "@schematics/angular:directive": { "type": "directive", "skipTests": true },
-        "@schematics/angular:service": { "type": "service", "skipTests": true },
-        "@schematics/angular:guard": { "typeSeparator": ".", "skipTests": true },
-        "@schematics/angular:interceptor": { "typeSeparator": ".", "skipTests": true },
-        "@schematics/angular:pipe": { "typeSeparator": ".", "skipTests": true },
-        "@schematics/angular:resolver": { "typeSeparator": ".", "skipTests": true },
-        "@schematics/angular:module": { "typeSeparator": "." }
+        "@schematics/angular:directive": {
+          "type": "directive",
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "type": "service",
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "typeSeparator": "."
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -39,10 +62,17 @@
                 "input": "public"
               }
             ],
-            "styles": ["node_modules/bootstrap/scss/bootstrap.scss", "src/styles.scss"],
-            "polyfills": ["zone.js"],
+            "styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/styles.scss"
+            ],
+            "polyfills": [
+              "zone.js"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": [
+                "src/styles"
+              ]
             }
           },
           "configurations": {
@@ -89,6 +119,15 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
