@@ -37,7 +37,8 @@ export class TravelBlogComponent {
       id: 3,
       image: '/images/travel-blog/image3.jpg',
       title: 'Как подготовиться к путешествию в одиночку? ',
-      description: 'Для современного мира базовый вектор развития предполагает.',
+      description:
+        'Для современного мира базовый вектор развития предполагает.',
       date: '01/04/2023',
       link: 'читать статью',
     },

@@ -18,22 +18,22 @@ export class UserServiceService {
   private message = inject(MessageServiceService);
   private localStorageService = inject(LocalStorageService);
 
-  public setUsers(users: IUser[]) {
+  setUsers(users: IUser[]) {
     this.userSubject.next(users);
     this.localStorageService.setItem('users', users);
   }
 
-  public getUsers() {
+  getUsers() {
     return this.userSubject.getValue();
   }
 
-  public addUser(user: IUser) {
+  addUser(user: IUser) {
     const currentUsers = this.userSubject.getValue();
     const newUsers = [...currentUsers, user];
     this.setUsers(newUsers);
   }
 
-  public loadUsers() {
+  loadUsers() {
     this.loader.showLoader();
     const savedUsers = this.localStorageService.getItem<IUser[]>('users');
     if (savedUsers !== null) {

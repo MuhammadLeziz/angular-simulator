@@ -45,5 +45,6 @@ export class PopularDestinationsComponent {
       star: '/icons/destination/ic_round-star.svg',
     },
   ];
+
   faStar = faStar;
 }

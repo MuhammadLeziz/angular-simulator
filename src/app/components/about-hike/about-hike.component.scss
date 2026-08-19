@@ -92,8 +92,6 @@
     @include mobile {
       @include square(rem(30));
     }
-
-
   }
 
   &__content {
@@ -132,8 +130,6 @@
     @include fluid-text(18, 14);
     color: var(--color-black);
   }
-
-
 }
 
 :host-context(.dark) {

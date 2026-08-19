@@ -5,6 +5,7 @@ import Aura from '@primeuix/themes/aura';
 import Lara from '@primeuix/themes/lara';
 import Nora from '@primeuix/themes/nora';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const PRESETS: Record<string, any> = {
   Aura,
   Lara,
@@ -15,8 +16,11 @@ export const PRESETS: Record<string, any> = {
   providedIn: 'root',
 })
 export class ThemeService {
-  private readonly themeSubject = new BehaviorSubject<string>(this.getCurrentTheme());
-  public theme$ = this.themeSubject.asObservable();
+  private readonly themeSubject = new BehaviorSubject<string>(
+    this.getCurrentTheme(),
+  );
+
+  theme$ = this.themeSubject.asObservable();
 
   constructor() {
     this.theme$.subscribe((theme) => this.changeTheme(theme));

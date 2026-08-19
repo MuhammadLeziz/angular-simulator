@@ -7,68 +7,109 @@
         <div class="user-form__grid">
           <div class="user-form__field">
             <label for="name">Имя</label>
-            <input id="name" type="text" placeholder="Введите имя" formControlName="name" appGradientBorder>
-            @if (userForm.controls['name'].errors?.['required'] && userForm.controls['name'].dirty) {
-            <span class="text-danger">Обязательное поле</span>
+            <input
+              id="name"
+              type="text"
+              placeholder="Введите имя"
+              formControlName="name"
+              appGradientBorder
+            />
+            @if (
+              userForm.controls['name'].errors?.['required'] &&
+              userForm.controls['name'].dirty
+            ) {
+              <span class="text-danger">Обязательное поле</span>
             }
             @if (userForm.controls['name'].errors?.['minlength']) {
-            <span class="text-danger">Минимальная длина - 2</span>
+              <span class="text-danger">Минимальная длина - 2</span>
             }
             @if (userForm.controls['name'].errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина длина - 100</span>
+              <span class="text-danger">Максимальная длина длина - 100</span>
             }
           </div>
           <div class="user-form__field">
             <label for="username">Username</label>
-            <input id="username" type="text" placeholder="Введите username" formControlName="username"
-              appGradientBorder>
-            @if (userForm.controls['username'].errors?.['required'] && userForm.controls['username'].dirty) {
-            <span class="text-danger">Обязательное поле</span>
+            <input
+              id="username"
+              type="text"
+              placeholder="Введите username"
+              formControlName="username"
+              appGradientBorder
+            />
+            @if (
+              userForm.controls['username'].errors?.['required'] &&
+              userForm.controls['username'].dirty
+            ) {
+              <span class="text-danger">Обязательное поле</span>
             }
 
             @if (userForm.controls['username'].errors?.['minlength']) {
-            <span class="text-danger">Минимальная длина — 3</span>
+              <span class="text-danger">Минимальная длина — 3</span>
             }
 
             @if (userForm.controls['username'].errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 30</span>
+              <span class="text-danger">Максимальная длина — 30</span>
             }
           </div>
           <div class="user-form__field">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="Введите email" formControlName="email" appGradientBorder>
-            @if (userForm.controls['email'].errors?.['required'] && userForm.controls['email'].dirty) {
-            <span class="text-danger">Обязательное поле</span>
+            <input
+              id="email"
+              type="email"
+              placeholder="Введите email"
+              formControlName="email"
+              appGradientBorder
+            />
+            @if (
+              userForm.controls['email'].errors?.['required'] &&
+              userForm.controls['email'].dirty
+            ) {
+              <span class="text-danger">Обязательное поле</span>
             }
 
             @if (userForm.controls['email'].errors?.['email']) {
-            <span class="text-danger">Некорректный email</span>
+              <span class="text-danger">Некорректный email</span>
             }
 
             @if (userForm.controls['email'].errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 100</span>
+              <span class="text-danger">Максимальная длина — 100</span>
             }
           </div>
           <div class="user-form__field">
             <label for="phone">Телефон</label>
-            <input id="phone" type="tel" placeholder="Введите телефон" formControlName="phone" appGradientBorder>
-            @if (userForm.controls['phone'].errors?.['required'] && userForm.controls['phone'].dirty) {
-            <span class="text-danger">Обязательное поле</span>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="Введите телефон"
+              formControlName="phone"
+              appGradientBorder
+            />
+            @if (
+              userForm.controls['phone'].errors?.['required'] &&
+              userForm.controls['phone'].dirty
+            ) {
+              <span class="text-danger">Обязательное поле</span>
             }
 
             @if (userForm.controls['phone'].errors?.['minlength']) {
-            <span class="text-danger">Минимальная длина — 10</span>
+              <span class="text-danger">Минимальная длина — 10</span>
             }
 
             @if (userForm.controls['phone'].errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 25</span>
+              <span class="text-danger">Максимальная длина — 25</span>
             }
           </div>
           <div class="user-form__field">
             <label for="website">Веб-сайт</label>
-            <input id="website" type="text" placeholder="Введите веб-сайт" formControlName="website" appGradientBorder>
+            <input
+              id="website"
+              type="text"
+              placeholder="Введите веб-сайт"
+              formControlName="website"
+              appGradientBorder
+            />
             @if (userForm.controls['website'].errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 100</span>
+              <span class="text-danger">Максимальная длина — 100</span>
             }
           </div>
         </div>
@@ -79,75 +120,128 @@
           <div class="user-form__grid">
             <div class="user-form__field">
               <label for="city">Город</label>
-              <input id="city" type="text" placeholder="Введите город" formControlName="city" appGradientBorder>
+              <input
+                id="city"
+                type="text"
+                placeholder="Введите город"
+                formControlName="city"
+                appGradientBorder
+              />
               @if (
-              userForm.controls.address.controls.city.errors?.['required'] &&
-              userForm.controls.address.controls.city.dirty
+                userForm.controls.address.controls.city.errors?.['required'] &&
+                userForm.controls.address.controls.city.dirty
               ) {
-              <span class="text-danger">Обязательное поле</span>
+                <span class="text-danger">Обязательное поле</span>
               }
-              @if (userForm.controls.address.controls.city.errors?.['maxlength']) {
-              <span class="text-danger">Максимальная длина — 50</span>
+              @if (
+                userForm.controls.address.controls.city.errors?.['maxlength']
+              ) {
+                <span class="text-danger">Максимальная длина — 50</span>
               }
             </div>
             <div class="user-form__field">
               <label for="street">Улица</label>
-              <input id="street" type="text" placeholder="Введите улицу" formControlName="street" appGradientBorder>
+              <input
+                id="street"
+                type="text"
+                placeholder="Введите улицу"
+                formControlName="street"
+                appGradientBorder
+              />
               @if (
-              userForm.controls.address.controls.street.errors?.['required'] &&
-              userForm.controls.address.controls.street.dirty
+                userForm.controls.address.controls.street.errors?.[
+                  'required'
+                ] && userForm.controls.address.controls.street.dirty
               ) {
-              <span class="text-danger">Обязательное поле</span>
+                <span class="text-danger">Обязательное поле</span>
               }
-              @if (userForm.controls.address.controls.street.errors?.['maxlength']) {
-              <span class="text-danger">Максимальная длина — 100</span>
+              @if (
+                userForm.controls.address.controls.street.errors?.['maxlength']
+              ) {
+                <span class="text-danger">Максимальная длина — 100</span>
               }
             </div>
             <div class="user-form__field">
               <label for="suite">Офис / квартира</label>
-              <input id="suite" type="text" placeholder="Введите номер" formControlName="suite" appGradientBorder>
-              @if (userForm.controls.address.controls.suite.errors?.['maxlength']) {
-              <span class="text-danger">Максимальная длина — 50</span>
+              <input
+                id="suite"
+                type="text"
+                placeholder="Введите номер"
+                formControlName="suite"
+                appGradientBorder
+              />
+              @if (
+                userForm.controls.address.controls.suite.errors?.['maxlength']
+              ) {
+                <span class="text-danger">Максимальная длина — 50</span>
               }
             </div>
             <div class="user-form__field">
               <label for="zipcode">Индекс</label>
-              <input id="zipcode" type="text" placeholder="Введите индекс" formControlName="zipcode" appGradientBorder>
+              <input
+                id="zipcode"
+                type="text"
+                placeholder="Введите индекс"
+                formControlName="zipcode"
+                appGradientBorder
+              />
               @if (
-              userForm.controls.address.controls.zipcode.errors?.['required'] &&
-              userForm.controls.address.controls.zipcode.dirty
+                userForm.controls.address.controls.zipcode.errors?.[
+                  'required'
+                ] && userForm.controls.address.controls.zipcode.dirty
               ) {
-              <span class="text-danger">Обязательное поле</span>
+                <span class="text-danger">Обязательное поле</span>
               }
-              @if (userForm.controls.address.controls.zipcode.errors?.['minlength']) {
-              <span class="text-danger">Минимальная длина — 5</span>
+              @if (
+                userForm.controls.address.controls.zipcode.errors?.['minlength']
+              ) {
+                <span class="text-danger">Минимальная длина — 5</span>
               }
-              @if (userForm.controls.address.controls.zipcode.errors?.['maxlength']) {
-              <span class="text-danger">Максимальная длина — 10</span>
+              @if (
+                userForm.controls.address.controls.zipcode.errors?.['maxlength']
+              ) {
+                <span class="text-danger">Максимальная длина — 10</span>
               }
             </div>
           </div>
           <div class="user-form__section">
             <h2 class="user-form__heading">Координаты</h2>
-            <div class="user-form__grid user-form__grid--small" formGroupName="geo">
+            <div
+              class="user-form__grid user-form__grid--small"
+              formGroupName="geo"
+            >
               <div class="user-form__field">
                 <label for="lat">Широта</label>
-                <input id="lat" type="text" placeholder="Введите широту" formControlName="lat" appGradientBorder>
+                <input
+                  id="lat"
+                  type="text"
+                  placeholder="Введите широту"
+                  formControlName="lat"
+                  appGradientBorder
+                />
                 @if (
-                userForm.controls.address.controls.geo.controls.lat.errors?.['required'] &&
-                userForm.controls.address.controls.geo.controls.lat.dirty
+                  userForm.controls.address.controls.geo.controls.lat.errors?.[
+                    'required'
+                  ] && userForm.controls.address.controls.geo.controls.lat.dirty
                 ) {
-                <span class="text-danger">Обязательное поле</span>
+                  <span class="text-danger">Обязательное поле</span>
                 }
               </div>
               <div class="user-form__field">
                 <label for="lng">Долгота</label>
-                <input id="lng" type="text" placeholder="Введите долготу" formControlName="lng" appGradientBorder>
+                <input
+                  id="lng"
+                  type="text"
+                  placeholder="Введите долготу"
+                  formControlName="lng"
+                  appGradientBorder
+                />
                 @if (
-                userForm.controls.address.controls.geo.controls.lng.errors?.['required'] &&
-                userForm.controls.address.controls.geo.controls.lng.dirty
+                  userForm.controls.address.controls.geo.controls.lng.errors?.[
+                    'required'
+                  ] && userForm.controls.address.controls.geo.controls.lng.dirty
                 ) {
-                <span class="text-danger">Обязательное поле</span>
+                  <span class="text-danger">Обязательное поле</span>
                 }
               </div>
             </div>
@@ -159,37 +253,64 @@
         <div class="user-form__grid" formGroupName="company">
           <div class="user-form__field">
             <label for="company-name">Компания</label>
-            <input id="company-name" type="text" placeholder="Введите компанию" formControlName="name"
-              appGradientBorder>
+            <input
+              id="company-name"
+              type="text"
+              placeholder="Введите компанию"
+              formControlName="name"
+              appGradientBorder
+            />
             @if (
-            userForm.controls.company.controls.name.errors?.['required'] &&
-            userForm.controls.company.controls.name.dirty
+              userForm.controls.company.controls.name.errors?.['required'] &&
+              userForm.controls.company.controls.name.dirty
             ) {
-            <span class="text-danger">Обязательное поле</span>
+              <span class="text-danger">Обязательное поле</span>
             }
-            @if (userForm.controls.company.controls.name.errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 50</span>
+            @if (
+              userForm.controls.company.controls.name.errors?.['maxlength']
+            ) {
+              <span class="text-danger">Максимальная длина — 50</span>
             }
           </div>
           <div class="user-form__field">
             <label for="catch-phrase">Миссия</label>
-            <input id="catch-phrase" type="text" placeholder="Введите миссию" formControlName="catchPhrase"
-              appGradientBorder>
-            @if (userForm.controls.company.controls.catchPhrase.errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 200</span>
+            <input
+              id="catch-phrase"
+              type="text"
+              placeholder="Введите миссию"
+              formControlName="catchPhrase"
+              appGradientBorder
+            />
+            @if (
+              userForm.controls.company.controls.catchPhrase.errors?.[
+                'maxlength'
+              ]
+            ) {
+              <span class="text-danger">Максимальная длина — 200</span>
             }
           </div>
           <div class="user-form__field">
             <label for="bs">Специализация</label>
-            <input id="bs" type="text" placeholder="Введите специализацию" formControlName="bs" appGradientBorder>
+            <input
+              id="bs"
+              type="text"
+              placeholder="Введите специализацию"
+              formControlName="bs"
+              appGradientBorder
+            />
             @if (userForm.controls.company.controls.bs.errors?.['maxlength']) {
-            <span class="text-danger">Максимальная длина — 100</span>
+              <span class="text-danger">Максимальная длина — 100</span>
             }
           </div>
         </div>
       </div>
-      <button class="user-form__submit" type="submit" [disabled]="userForm.invalid"
-        [class.user-form__submit--disabled]="userForm.invalid" appBoldOnHover>
+      <button
+        class="user-form__submit"
+        type="submit"
+        [disabled]="userForm.invalid"
+        [class.user-form__submit--disabled]="userForm.invalid"
+        appBoldOnHover
+      >
         Создать пользователя
       </button>
     </form>

@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
-import { ActivatedRoute, ResolveFn } from '@angular/router';
+import { ResolveFn } from '@angular/router';
 import { PostApiService } from '../services/post-api.service';
 import { IPost } from '../models/interfaces/IPost';
 
-export const postResolverResolver: ResolveFn<IPost> = (route, state) => {
+export const postResolverResolver: ResolveFn<IPost> = (route) => {
   const postApiService = inject(PostApiService);
   const id = route.paramMap.get('id');
   const post = postApiService.getPost(Number(id));

@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IPostResponse } from '../models/interfaces/IPostResponse';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
@@ -12,7 +12,9 @@ export class PostApiService {
   private http = inject(HttpClient);
 
   getPosts(limit: number, skip: number): Observable<IPostResponse> {
-    return this.http.get<IPostResponse>(environment.POSTS_API_URL + `?limit=${limit}&skip=${skip}`);
+    return this.http.get<IPostResponse>(
+      environment.POSTS_API_URL + `?limit=${limit}&skip=${skip}`,
+    );
   }
 
   getPost(id: number): Observable<IPost> {

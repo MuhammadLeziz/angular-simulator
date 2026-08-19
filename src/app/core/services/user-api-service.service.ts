@@ -7,7 +7,7 @@ import { IUser } from '../models/interfaces/IUser';
 })
 export class UserApiServiceService {
   readonly http = inject(HttpClient);
-  public getUsers() {
+  getUsers() {
     return this.http.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
   }
 }

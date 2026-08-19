@@ -1,17 +1,35 @@
 <div class="flex justify-center">
-  <p-card class="max-w-sm w-full" header="Welcome back" subheader="Sign in with your username to continue.">
-    <form class="space-y-6 mt-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <p-card
+    class="max-w-sm w-full"
+    header="Welcome back"
+    subheader="Sign in with your username to continue."
+  >
+    <form
+      class="space-y-6 mt-3"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="flex flex-col gap-2">
         <div class="flex items-center justify-between">
           <label for="username">Username</label>
         </div>
-        <input pInputText id="username" type="text" formControlName="username" />
+        <input
+          pInputText
+          id="username"
+          type="text"
+          formControlName="username"
+        />
       </div>
-      <div class=" flex flex-col gap-2">
+      <div class="flex flex-col gap-2">
         <div class="flex items-center justify-between">
           <label for="password" class="flex-1">Password</label>
         </div>
-        <input pInputText id="password" type="password" formControlName="password" />
+        <input
+          pInputText
+          id="password"
+          type="password"
+          formControlName="password"
+        />
       </div>
       <div class="flex flex-col gap-4">
         <button type="submit" pButton class="w-full">Login</button>
@@ -19,8 +37,13 @@
     </form>
   </p-card>
 </div>
-@if(errorMessage) {
-<div class="max-w-md mx-auto space-y-4 top-right">
-  <p-message severity="error" icon="pi pi-exclamation-triangle" [closable]="true">Something went wrong.</p-message>
-</div>
+@if (errorMessage) {
+  <div class="max-w-md mx-auto space-y-4 top-right">
+    <p-message
+      severity="error"
+      icon="pi pi-exclamation-triangle"
+      [closable]="true"
+      >Something went wrong.</p-message
+    >
+  </div>
 }

@@ -1,6 +1,6 @@
-import { HttpErrorResponse, HttpInterceptorFn, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { catchError, tap, throwError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 import { MessageServiceService } from '../services/message-service.service';
 
 export const backendInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
@@ -8,7 +8,9 @@ export const backendInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
       if (error.status >= 500 && error.status < 600) {
-        messageService.showError(`Произошла ошибка ${error.status} на бекенд сервере`);
+        messageService.showError(
+          `Произошла ошибка ${error.status} на бекенд сервере`,
+        );
       }
       return throwError(() => error);
     }),

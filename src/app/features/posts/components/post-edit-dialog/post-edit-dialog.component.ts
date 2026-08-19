@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { DynamicDialogComponent, DynamicDialogModule } from 'primeng/dynamicdialog';
-import { DialogService, DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
+import {} from 'primeng/dynamicdialog';
+import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { IPost } from '../../models/interfaces/IPost';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';

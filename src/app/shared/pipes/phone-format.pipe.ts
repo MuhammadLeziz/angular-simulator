@@ -4,7 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'phoneFormat',
 })
 export class PhoneFormatPipe implements PipeTransform {
-  transform(phone: string, mode: 'compact' | 'international' | 'national' | 'masked'): string {
+  transform(
+    phone: string,
+    mode: 'compact' | 'international' | 'national' | 'masked',
+  ): string {
     const filteredPhone = phone
       .split('')
       .filter((el) => '0123456789'.includes(el))
@@ -19,10 +22,12 @@ export class PhoneFormatPipe implements PipeTransform {
       return `+${filteredPhone.slice(0, 2)} ${filteredPhone.slice(2, 5)} ${filteredPhone
         .slice(5, 8)
         .split('')
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .map((el) => (el = '*'))
         .join('')} ${filteredPhone
         .slice(8, 10)
         .split('')
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .map((el) => (el = '*'))
         .join('')} ${filteredPhone.slice(-2)}`;
     }

@@ -1,18 +1,27 @@
 <div class="flex justify-center">
-  <p-card class="max-w-sm w-full" [header]="post.title" subheader={{post.tags}}>
-    <p class="m-0">{{post.body}}</p>
+  <p-card
+    class="max-w-sm w-full"
+    [header]="post.title"
+    subheader="{{ post.tags }}"
+  >
+    <p class="m-0">{{ post.body }}</p>
     <ng-template #footer>
-      <span class="text-sm text-surface-500 dark:text-surface-400">{{post.reactions.likes}} <fa-icon
-          [icon]="faThumbsUp"> </fa-icon>
-      </span><br>
-      <span class="text-sm text-surface-500 dark:text-surface-400">{{post.reactions.dislikes}}
-        <fa-icon [icon]="faThumbsDown"> </fa-icon>
-      </span><br>
-      <span class="text-sm text-surface-500 dark:text-surface-400">{{post.views}}
-        <fa-icon [icon]="faEye"> </fa-icon></span>
-      <br>
-      <span class="text-sm text-surface-500 dark:text-surface-400">{{post.userId}}</span>
-      <br>
+      <span class="text-sm text-surface-500 dark:text-surface-400"
+        >{{ post.reactions.likes }}
+        <fa-icon [icon]="faThumbsUp"> </fa-icon> </span
+      ><br />
+      <span class="text-sm text-surface-500 dark:text-surface-400"
+        >{{ post.reactions.dislikes }}
+        <fa-icon [icon]="faThumbsDown"> </fa-icon> </span
+      ><br />
+      <span class="text-sm text-surface-500 dark:text-surface-400"
+        >{{ post.views }} <fa-icon [icon]="faEye"> </fa-icon
+      ></span>
+      <br />
+      <span class="text-sm text-surface-500 dark:text-surface-400">{{
+        post.userId
+      }}</span>
+      <br />
       <app-button [routerLink]="['/posts']">Назад к таблице</app-button>
     </ng-template>
   </p-card>

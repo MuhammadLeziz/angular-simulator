@@ -1,4 +1,10 @@
-import { Directive, ElementRef, HostBinding, HostListener, inject, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  inject,
+  Renderer2,
+} from '@angular/core';
 
 @Directive({
   selector: '[appBoldOnHover]',

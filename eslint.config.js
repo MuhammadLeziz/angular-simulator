@@ -39,7 +39,7 @@ module.exports = defineConfig([
           allow: ['warn', 'error'],
         },
       ],
-      'padded-blocks': ['error', { classes: 'always' }],
+      // 'padded-blocks': ['error', { classes: 'always' }],
       quotes: [
         'warn',
         'single',
@@ -63,7 +63,7 @@ module.exports = defineConfig([
         'error',
         {
           selector: ['interface'],
-          format: ['StrictPascalCase'],
+          format: ['PascalCase'],
           trailingUnderscore: 'allow',
           custom: {
             regex: '^I[A-Z]',

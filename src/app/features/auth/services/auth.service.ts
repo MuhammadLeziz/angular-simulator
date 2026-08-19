@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
@@ -13,7 +14,7 @@ export class AuthService {
   private readonly http = inject(HttpClient);
   private readonly router = inject(Router);
   private $userSubject = new BehaviorSubject<IAuth | null>(null);
-  public user$ = this.$userSubject.asObservable();
+  user$ = this.$userSubject.asObservable();
 
   loginPost(formVal: ILogin): Observable<IAuth> {
     return this.http.post<IAuth>(environment.LOGIN_USER_API_URL, formVal).pipe(

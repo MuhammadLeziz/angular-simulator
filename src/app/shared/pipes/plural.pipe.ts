@@ -14,7 +14,8 @@ export class PluralPipe implements PipeTransform {
     if (isNaN(number)) return `${num} ${word3}`;
     const last2 = Math.abs(number) % 100;
     const last1 = Math.abs(number) % 10;
-    if (last2 === 11 || last2 === 12 || last2 === 13 || last2 === 14) return `${num} ${word3}`;
+    if (last2 === 11 || last2 === 12 || last2 === 13 || last2 === 14)
+      return `${num} ${word3}`;
     if (last1 === 1) return `${num} ${word1}`;
     if (last1 === 2 || last1 === 3 || last1 === 4) return `${num} ${word2}`;
     else return `${num} ${word3}`;

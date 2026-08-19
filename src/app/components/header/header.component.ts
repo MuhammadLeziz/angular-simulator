@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { label: 'Lara', value: 'Lara' },
     { label: 'Nora', value: 'Nora' },
   ];
+
   selectedPreset = this.themeService.getSavedPreset();
 
   onPresetChange(preset: string) {
@@ -47,12 +48,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.themeService.setPreset(preset);
     }
   }
-  isOpen: boolean = false;
+
+  isOpen = false;
   timerId!: number;
   date!: string;
-  counter: number = 0;
-  showTimer: boolean = true;
-  liveInput: string = '';
+  counter = 0;
+  showTimer = true;
+  liveInput = '';
   navigation: INavigation[] = [
     {
       title: 'Главная',
@@ -79,12 +81,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
       link: 'contacts',
     },
   ];
+
   ngOnInit() {
     this.date = new Date().toLocaleString();
     this.timerId = setInterval(() => {
       this.date = new Date().toLocaleString();
     }, 1000);
   }
+
   ngOnDestroy() {
     clearInterval(this.timerId);
   }

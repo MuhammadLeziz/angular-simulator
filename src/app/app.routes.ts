@@ -12,17 +12,22 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      import('../app/features/auth/components/login/login.component').then((m) => m.LoginComponent),
+      import('../app/features/auth/components/login/login.component').then(
+        (m) => m.LoginComponent,
+      ),
   },
   {
     path: 'home',
-    loadComponent: () => import('../app/pages/home/home.component').then((m) => m.HomeComponent),
+    loadComponent: () =>
+      import('../app/pages/home/home.component').then((m) => m.HomeComponent),
     canActivate: [authGuard],
   },
   {
     path: 'about-guide',
     loadComponent: () =>
-      import('../app/pages/about-guide/about-guide.component').then((m) => m.AboutGuideComponent),
+      import('../app/pages/about-guide/about-guide.component').then(
+        (m) => m.AboutGuideComponent,
+      ),
     canActivate: [authGuard],
   },
   {
@@ -35,24 +40,32 @@ export const routes: Routes = [
   },
   {
     path: 'price',
-    loadComponent: () => import('../app/pages/price/price.component').then((m) => m.PriceComponent),
+    loadComponent: () =>
+      import('../app/pages/price/price.component').then(
+        (m) => m.PriceComponent,
+      ),
     canActivate: [authGuard],
   },
   {
     path: 'blog',
-    loadComponent: () => import('../app/pages/blog/blog.component').then((m) => m.BlogComponent),
+    loadComponent: () =>
+      import('../app/pages/blog/blog.component').then((m) => m.BlogComponent),
     canActivate: [authGuard],
   },
   {
     path: 'contacts',
     loadComponent: () =>
-      import('../app/pages/contacts/contacts.component').then((m) => m.ContactsComponent),
+      import('../app/pages/contacts/contacts.component').then(
+        (m) => m.ContactsComponent,
+      ),
     canActivate: [authGuard],
   },
   {
     path: 'users',
     loadComponent: () =>
-      import('../app/components/users/users.component').then((m) => m.UsersComponent),
+      import('../app/components/users/users.component').then(
+        (m) => m.UsersComponent,
+      ),
     canActivate: [authGuard, adminGuard],
   },
   {
@@ -85,7 +98,9 @@ export const routes: Routes = [
   {
     path: '**',
     loadComponent: () =>
-      import('../app/pages/not-found/not-found.component').then((m) => m.NotFoundComponent),
+      import('../app/pages/not-found/not-found.component').then(
+        (m) => m.NotFoundComponent,
+      ),
     canActivate: [authGuard],
   },
 ];

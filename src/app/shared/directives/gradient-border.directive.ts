@@ -1,4 +1,11 @@
-import { Directive, ElementRef, HostListener, inject, Input, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  inject,
+  Input,
+  Renderer2,
+} from '@angular/core';
 
 @Directive({
   selector: '[appGradientBorder]',
@@ -6,6 +13,7 @@ import { Directive, ElementRef, HostListener, inject, Input, Renderer2 } from '@
 export class GradientBorderDirective {
   element = inject(ElementRef);
   renderer = inject(Renderer2);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   timer!: any;
   @Input() GradientConfiguration: {
     delay?: number;
@@ -21,8 +29,16 @@ export class GradientBorderDirective {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       const gradient = `linear-gradient(45deg, ${colors.join(', ')}) 1`;
-      this.renderer.setStyle(this.element.nativeElement, 'border', `${thickness} solid`);
-      this.renderer.setStyle(this.element.nativeElement, 'border-image', gradient);
+      this.renderer.setStyle(
+        this.element.nativeElement,
+        'border',
+        `${thickness} solid`,
+      );
+      this.renderer.setStyle(
+        this.element.nativeElement,
+        'border-image',
+        gradient,
+      );
     }, delay);
   }
 

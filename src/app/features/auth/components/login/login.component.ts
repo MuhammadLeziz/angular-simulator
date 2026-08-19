@@ -5,7 +5,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
-import { MessageService } from 'primeng/api';
 import { AuthService } from '../../services/auth.service';
 import { ILogin } from '../../interfaces/ILogin';
 import { Router } from '@angular/router';
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
   private fb = inject(FormBuilder);
   authService = inject(AuthService);
   router = inject(Router);
-  errorMessage: string = '';
+  errorMessage = '';
 
   loginForm = this.fb.group({
     username: ['', [Validators.required]],
@@ -41,17 +40,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.loginPost(this.loginForm.getRawValue() as ILogin).subscribe({
-      next: (res) => {
-        this.router.navigate(['/home']);
-        this.errorMessage = '';
-      },
-      error: (err) => {
-        this.errorMessage = 'Неверный логин или пароль';
-        setTimeout(() => {
+    this.authService
+      .loginPost(this.loginForm.getRawValue() as ILogin)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/home']);
           this.errorMessage = '';
-        }, 3000);
-      },
-    });
+        },
+        error: () => {
+          this.errorMessage = 'Неверный логин или пароль';
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 3000);
+        },
+      });
   }
 }

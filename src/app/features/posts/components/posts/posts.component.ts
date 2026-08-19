@@ -4,9 +4,9 @@ import { PostApiService } from '../../services/post-api.service';
 import { IPost } from '../../models/interfaces/IPost';
 import { tap } from 'rxjs';
 import { SkeletonModule } from 'primeng/skeleton';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ContextMenuModule } from 'primeng/contextmenu';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { PostEditDialogComponent } from '../post-edit-dialog/post-edit-dialog.component';
 import { TableLazyLoadEvent } from 'primeng/table';
@@ -14,7 +14,13 @@ import { ButtonComponent } from '../../../../shared/ui/button/button.component';
 
 @Component({
   selector: 'app-posts',
-  imports: [TableModule, SkeletonModule, ContextMenuModule, ButtonComponent, RouterLink],
+  imports: [
+    TableModule,
+    SkeletonModule,
+    ContextMenuModule,
+    ButtonComponent,
+    RouterLink,
+  ],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss',
 })
@@ -22,8 +28,9 @@ export class PostsComponent implements OnInit {
   private readonly dialogService = inject(DialogService);
   readonly postApiService = inject(PostApiService);
   private readonly router = inject(Router);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   postsArray: IPost[] | any[] = [];
-  isLoading: boolean = true;
+  isLoading = true;
   selectedPost: IPost | null = null;
   menuItem: MenuItem[] = [];
   total = 0;

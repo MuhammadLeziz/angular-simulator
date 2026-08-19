@@ -13,9 +13,11 @@
   $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
   $yAxisIntersection: -$minWidth * $slope + $minSize;
 
-  font-size: clamp(#{$minSize * 1rem},
+  font-size: clamp(
+    #{$minSize * 1rem},
     #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-    #{$maxSize * 1rem});
+    #{$maxSize * 1rem}
+  );
 }
 
 // $max — размер из desktop макета (px без единиц)
@@ -35,11 +37,12 @@
   $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
   $yAxisIntersection: -$minWidth * $slope + $minSize;
 
-  #{$property}: clamp(#{$minSize * 1rem},
+  #{$property}: clamp(
+    #{$minSize * 1rem},
     #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-    #{$maxSize * 1rem});
+    #{$maxSize * 1rem}
+  );
 }
-
 
 // 3. Скрыть / показать через opacity+visibility
 @mixin hide {
@@ -56,16 +59,13 @@
 @mixin flex-center($isInline: false) {
   @if $isInline {
     display: inline-flex; // по размеру контента
-  }
-
-  @else {
+  } @else {
     display: flex; // на всю ширину
   }
 
   justify-content: center;
   align-items: center;
 }
-
 
 // 5. Абсолютное центрирование (родитель должен иметь position: relative)
 @mixin abs-center {
