@@ -93,6 +93,8 @@ module.exports = defineConfig([
       '@angular-eslint/template/banana-in-box': ['error'],
       '@angular-eslint/template/eqeqeq': ['warn'],
       '@angular-eslint/template/elements-content': ['error'],
+      '@angular-eslint/template/no-nested-tags': ['error'],
+      '@angular-eslint/template/prefer-self-closing-tags': ['error'],
     },
   },
 ]);
