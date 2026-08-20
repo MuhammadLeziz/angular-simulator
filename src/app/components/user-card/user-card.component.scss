@@ -79,19 +79,19 @@
     margin-top: rem(8);
     font-size: rem(11);
 
-    >span:first-child {
+    > span:first-child {
       flex-shrink: 0;
       color: #789090;
     }
 
-    >span:last-child,
-    >a {
+    > span:last-child,
+    > a {
       text-align: right;
       color: #263f40;
       font-weight: 600;
     }
 
-    >a {
+    > a {
       color: #d88c4c;
       text-decoration: none;
     }

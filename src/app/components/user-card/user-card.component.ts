@@ -7,7 +7,12 @@ import { GradientBorderDirective } from '../../shared/directives/gradient-border
 
 @Component({
   selector: 'app-user-card',
-  imports: [UpperCasePipe, PhoneFormatPipe, BoldOnHoverDirective, GradientBorderDirective],
+  imports: [
+    UpperCasePipe,
+    PhoneFormatPipe,
+    BoldOnHoverDirective,
+    GradientBorderDirective,
+  ],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
 })

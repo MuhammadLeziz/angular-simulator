@@ -2,14 +2,20 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { PostApiService } from '../../services/post-api.service';
 import { Router, RouterLink } from '@angular/router';
-import { take, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 
 @Component({
   selector: 'app-post-create',
-  imports: [ReactiveFormsModule, RouterLink, InputTextModule, TextareaModule, ButtonModule],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    InputTextModule,
+    TextareaModule,
+    ButtonModule,
+  ],
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.scss',
 })
@@ -21,6 +27,7 @@ export class PostCreateComponent {
     tags: [''],
     userId: [''],
   });
+
   postApiService = inject(PostApiService);
   router = inject(Router);
 

@@ -9,45 +9,74 @@
       <div class="hero__field">
         <label for="location" class="hero__label">выберите из списка</label>
         <div class="hero__danger">
-          @if (form.controls['location'].errors?.['required'] && form.controls['location'].touched) {
-          <span>Обязательное поле</span>
+          @if (
+            form.controls['location'].errors?.['required'] &&
+            form.controls['location'].touched
+          ) {
+            <span>Обязательное поле</span>
           }
         </div>
-        <select id="location" name="location" class="hero__select" formControlName="location">
+        <select
+          id="location"
+          name="location"
+          class="hero__select"
+          formControlName="location"
+        >
           <option value="" selected>Локация для тура</option>
           <option value="altai">Алтай</option>
           <option value="kavkaz">Кавказ</option>
         </select>
-
       </div>
 
       <div class="hero__field">
         <label for="date" class="hero__label">укажите дату</label>
         <div class="hero__danger">
-          @if (form.controls['date'].errors?.['required'] && form.controls['date'].touched) {
-          <span>Обязательное поле</span>
+          @if (
+            form.controls['date'].errors?.['required'] &&
+            form.controls['date'].touched
+          ) {
+            <span>Обязательное поле</span>
           }
         </div>
-        <input type="date" id="date" name="date" class="hero__input" placeholder="Дата похода" formControlName="date" />
-
+        <input
+          type="date"
+          id="date"
+          name="date"
+          class="hero__input"
+          placeholder="Дата похода"
+          formControlName="date"
+        />
       </div>
 
       <div class="hero__field">
         <label for="participants" class="hero__label">выберите из списка</label>
         <div class="hero__danger">
-          @if (form.controls['participants'].errors?.['required'] && form.controls['participants'].touched) {
-          <span>Обязательное поле</span>
+          @if (
+            form.controls['participants'].errors?.['required'] &&
+            form.controls['participants'].touched
+          ) {
+            <span>Обязательное поле</span>
           }
         </div>
-        <select id="participants" name="participants" class="hero__select" formControlName="participants">
+        <select
+          id="participants"
+          name="participants"
+          class="hero__select"
+          formControlName="participants"
+        >
           <option value="" selected>Участники</option>
           <option value="1">1 человек</option>
           <option value="2">2 человека</option>
         </select>
       </div>
 
-      <app-button [disabled]="form.invalid" type="button" class="hero__button" (click)="onSearch()">Найти
-        программу</app-button>
+      <app-button
+        [disabled]="form.invalid"
+        type="button"
+        class="hero__button"
+        (click)="onSearch()"
+        >Найти программу</app-button
+      >
     </form>
   </div>
 </section>

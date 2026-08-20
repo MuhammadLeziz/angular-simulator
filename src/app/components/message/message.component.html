@@ -1,6 +1,9 @@
 <div class="messages">
   @for (item of message.messages$ | async; track item.id) {
-  <ng-container [ngTemplateOutlet]="messageTemp" [ngTemplateOutletContext]="{$implicit : item}"></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="messageTemp"
+      [ngTemplateOutletContext]="{ $implicit: item }"
+    ></ng-container>
   }
 </div>
 
@@ -9,13 +12,15 @@
     <div class="message__content">
       <fa-icon class="message__icon" [icon]="faMessage"></fa-icon>
       <div class="message__text">
-        <div class="message__title">{{item.type}}</div>
-        <p class="message__subtitle">{{item.text}}</p>
+        <div class="message__title">{{ item.type }}</div>
+        <p class="message__subtitle">{{ item.text }}</p>
       </div>
     </div>
-    <button class="message__button" (click)="this.message.closeMessage(item.id)">
+    <button
+      class="message__button"
+      (click)="this.message.closeMessage(item.id)"
+    >
       <fa-icon [icon]="faClose"></fa-icon>
     </button>
-
   </div>
 </ng-template>

@@ -1,21 +1,56 @@
-<form [formGroup]="dialogForm" (ngSubmit)="onSave()" class="flex flex-col gap-4">
+<form
+  [formGroup]="dialogForm"
+  (ngSubmit)="onSave()"
+  class="flex flex-col gap-4"
+>
   <div class="flex flex-col gap-2">
     <label for="title" class="font-bold">Заголовок</label>
-    <input pInputText id="title" formControlName="title" placeholder="Введите заголовок" class="w-full" />
+    <input
+      pInputText
+      id="title"
+      formControlName="title"
+      placeholder="Введите заголовок"
+      class="w-full"
+    />
   </div>
 
   <div class="flex flex-col gap-2">
     <label for="tags" class="font-bold">Теги</label>
-    <input pInputText id="tags" formControlName="tags" placeholder="например: history, news" class="w-full" />
+    <input
+      pInputText
+      id="tags"
+      formControlName="tags"
+      placeholder="например: history, news"
+      class="w-full"
+    />
   </div>
 
   <div class="flex flex-col gap-2">
     <label for="views" class="font-bold">Просмотры</label>
-    <input pInputText id="views" type="number" formControlName="views" class="w-full" />
+    <input
+      pInputText
+      id="views"
+      type="number"
+      formControlName="views"
+      class="w-full"
+    />
   </div>
 
   <div class="flex justify-end gap-2 mt-4">
-    <button pButton type="button" label="Отмена" severity="secondary" (click)="onCancel()"></button>
-    <button pButton type="submit" label="Сохранить" severity="primary"></button>
+    <button
+      pButton
+      type="button"
+      label="Отмена"
+      severity="secondary"
+      (click)="onCancel()"
+      aria-label="Отмена"
+    ></button>
+    <button
+      pButton
+      type="submit"
+      label="Сохранить"
+      severity="primary"
+      aria-label="Сохранить"
+    ></button>
   </div>
 </form>

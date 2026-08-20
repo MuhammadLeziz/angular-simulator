@@ -1,68 +1,124 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <header class="header">
   <div class="header__inner container">
-    <a [routerLink]="['/home']" class="header__logo" aria-label="Logo" title="Logo">
-      <img src="/icons/header/logo.svg" class="header__logo-img" width="143" height="60">
+    <a
+      [routerLink]="['/home']"
+      class="header__logo"
+      aria-label="Logo"
+      title="Logo"
+    >
+      <img
+        src="/icons/header/logo.svg"
+        class="header__logo-img"
+        width="143"
+        height="60"
+        alt=""
+      />
     </a>
-    <div class="header__overlay" [class.header__overlay--active]="isOpen" (click)="onClick()">
+    <div
+      class="header__overlay"
+      [class.header__overlay--active]="isOpen"
+      (click)="onClick()"
+    >
       <nav class="header__menu">
         <ul class="header__list">
           @for (item of navigation; track item.link) {
-          <li class="header__item">
-            <a routerLinkActive="header__link--active" [routerLink]="item.link" class="header__link">{{item.title}}</a>
-          </li>
+            <li class="header__item">
+              <a
+                routerLinkActive="header__link--active"
+                [routerLink]="item.link"
+                class="header__link"
+                >{{ item.title }}</a
+              >
+            </li>
           }
         </ul>
       </nav>
       <app-button variant="white">Консультация</app-button>
     </div>
-    <app-burger class="visible-mobile" [isActive]="isOpen" (click)="onClick()"></app-burger>
+    <app-burger
+      class="visible-mobile"
+      [isActive]="isOpen"
+      (click)="onClick()"
+    ></app-burger>
   </div>
 
-  <div class="header__theme-controls container"
-    style="display: flex; gap: 16px; align-items: center; justify-content: center; margin-block: 10px;">
-    <p-toggleswitch [(ngModel)]="checked" (onChange)="themeService.toggleTheme()">
+  <div
+    class="header__theme-controls container"
+    style="
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      margin-block: 10px;
+    "
+  >
+    <p-toggleswitch
+      [(ngModel)]="checked"
+      (onChange)="themeService.toggleTheme()"
+    >
       <ng-template #handle let-checked="checked">
         @if (checked) {
-        <fa-icon [icon]="faMoon"></fa-icon>
+          <fa-icon [icon]="faMoon"></fa-icon>
         } @else {
-        <fa-icon [icon]="faSun"></fa-icon>
+          <fa-icon [icon]="faSun"></fa-icon>
         }
       </ng-template>
     </p-toggleswitch>
 
-    <p-selectbutton [options]="presetOptions" [(ngModel)]="selectedPreset" optionLabel="label" optionValue="value"
-      (onChange)="onPresetChange($event.value)" [allowEmpty]="false" />
+    <p-selectbutton
+      [options]="presetOptions"
+      [(ngModel)]="selectedPreset"
+      optionLabel="label"
+      optionValue="value"
+      (onChange)="onPresetChange($event.value)"
+      [allowEmpty]="false"
+    />
   </div>
 
   <div class="container zadachi">
     @if (showTimer) {
-    <div class="timer">
-      {{date}}
-    </div>
+      <div class="timer">
+        {{ date }}
+      </div>
     } @else {
-    <div class="counter">
-      <button type="button" class="plus" (click)="plusCounter()">+</button>
-      <span>{{counter}}</span>
-      <button type="button" [disabled]="counter === 0" class="minus" (click)="minusCounter()">-</button>
-    </div>
+      <div class="counter">
+        <button type="button" class="plus" (click)="plusCounter()">+</button>
+        <span>{{ counter }}</span>
+        <button
+          type="button"
+          [disabled]="counter === 0"
+          class="minus"
+          (click)="minusCounter()"
+        >
+          -
+        </button>
+      </div>
     }
     <div>
       <!-- <input type="text" name="" id="" class="live-input" [(ngModel)]="liveInput"> -->
-      <input type="text" name="" id="" class="live-input" (input)="onInput($event)">
-      <span>{{liveInput}}</span>
+      <input
+        type="text"
+        name=""
+        id=""
+        class="live-input"
+        (input)="onInput($event)"
+      />
+      <span>{{ liveInput }}</span>
     </div>
 
     <app-button variant="white" (click)="showTimerOrCounter()">
-      {{showTimer ? 'Показать счетчик' : 'Показать таймер'}}
+      {{ showTimer ? 'Показать счетчик' : 'Показать таймер' }}
     </app-button>
     <app-button variant="white" (click)="authService.logout()">
       Выйти с аккаунта
     </app-button>
   </div>
   @if (authService.user$ | async; as user) {
-  <div>
-    <img src={{user.image}} alt="Avatar">
-    <span class="text-success">{{user.firstName}} {{user.lastName}}</span>
-  </div>
+    <div>
+      <img src="{{ user.image }}" alt="Avatar" />
+      <span class="text-success">{{ user.firstName }} {{ user.lastName }}</span>
+    </div>
   }
 </header>

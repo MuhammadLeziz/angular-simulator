@@ -1,38 +1,73 @@
 <section class="best-programs">
   <div class="best-programs__inner container">
     <div class="best-programs__content">
-      <app-section-heading label="наше предложение" title="Лучшие программы для тебя"></app-section-heading>
+      <app-section-heading
+        label="наше предложение"
+        title="Лучшие программы для тебя"
+      ></app-section-heading>
       <div class="best-programs__description">
-        <p>Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
-          Ричард МакКлинток, профессор латыни из колледжа.</p>
+        <p>
+          Его корни уходят в один фрагмент классической латыни 45 года н.э., то
+          есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни
+          из колледжа.
+        </p>
       </div>
       <ul class="best-programs__list">
         @for (item of programs; track item.id) {
-        <li class="best-programs__item">
-          <a href="#" class="best-programs__link">
-            <img src="{{item.icon}}" class="best-progrmas__icon" width="50" height="50">
-            <div class="best-programs__item-group">
-              <h3 class="best-programs__item-title">{{item.title}}</h3>
-              <div class="best-programs__item-description">
-                <p>{{item.text}}</p>
+          <li class="best-programs__item">
+            <a href="#" class="best-programs__link">
+              <img
+                src="{{ item.icon }}"
+                class="best-progrmas__icon"
+                width="50"
+                height="50"
+                alt=""
+              />
+              <div class="best-programs__item-group">
+                <h3 class="best-programs__item-title">{{ item.title }}</h3>
+                <div class="best-programs__item-description">
+                  <p>{{ item.text }}</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </li>
+            </a>
+          </li>
         }
       </ul>
-      <app-button class="best-programs__button" (click)="message.showInfo('Стоимость отправлена на почту')">Стоимость
-        программ</app-button>
+      <app-button
+        class="best-programs__button"
+        (click)="message.showInfo('Стоимость отправлена на почту')"
+        >Стоимость программ</app-button
+      >
     </div>
     <div class="best-programs__images">
-      <img src="/images/best-programs/image1.jpg" alt="Чашка кофе на фоне скалистого пляжа" width="250" height="250"
-        class="best-programs__img">
-      <img src="/images/best-programs/image2.jpg" alt="Хайкинг по песчаным горам" width="250" height="250"
-        class="best-programs__img">
-      <img src="/images/best-programs/image3.jpg" alt="Снегоход на вершине горы" width="250" height="250"
-        class="best-programs__img">
-      <img src="/images/best-programs/image4.jpg" alt="Стык двух ручейков на фоне гор" width="250" height="250"
-        class="best-programs__img">
+      <img
+        src="/images/best-programs/image1.jpg"
+        alt="Чашка кофе на фоне скалистого пляжа"
+        width="250"
+        height="250"
+        class="best-programs__img"
+      />
+      <img
+        src="/images/best-programs/image2.jpg"
+        alt="Хайкинг по песчаным горам"
+        width="250"
+        height="250"
+        class="best-programs__img"
+      />
+      <img
+        src="/images/best-programs/image3.jpg"
+        alt="Снегоход на вершине горы"
+        width="250"
+        height="250"
+        class="best-programs__img"
+      />
+      <img
+        src="/images/best-programs/image4.jpg"
+        alt="Стык двух ручейков на фоне гор"
+        width="250"
+        height="250"
+        class="best-programs__img"
+      />
     </div>
   </div>
 </section>

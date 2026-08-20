@@ -16,7 +16,8 @@ export class AboutHikeComponent {
   protected readonly message = inject(MessageServiceService);
   @ViewChild('video')
   video!: ElementRef<HTMLVideoElement>;
-  isActive: boolean = false;
+
+  isActive = false;
   playVideo() {
     const video = this.video.nativeElement;
     if (video.paused) {
