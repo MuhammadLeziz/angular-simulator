@@ -4,9 +4,9 @@
       variant="center"
       label="фото-отчет"
       title="Делимся впечатлениями"
-    ></app-section-heading>
+    />
     <div class="photo-report__images">
-      <ng-container [ngTemplateOutlet]="imgContainer"> </ng-container>
+      <ng-container [ngTemplateOutlet]="imgContainer" />
     </div>
     <app-button (click)="messages.showError('Не удалось перейти на сайт')"
       >Наш pinterest</app-button

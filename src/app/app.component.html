@@ -9,13 +9,13 @@
     />
   </div>
 } @else {
-  <app-loader-component></app-loader-component>
+  <app-loader-component />
   @if (router.url !== '/login') {
-    <app-header></app-header>
+    <app-header />
   }
-  <router-outlet></router-outlet>
+  <router-outlet />
   @if (router.url !== '/login') {
-    <app-footer></app-footer>
+    <app-footer />
   }
-  <app-message></app-message>
+  <app-message />
 }

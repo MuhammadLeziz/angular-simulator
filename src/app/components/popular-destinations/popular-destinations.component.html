@@ -4,7 +4,7 @@
       variant="center"
       label="по версии отдыхающих"
       title="Популярные направления"
-    ></app-section-heading>
+    />
     <ul class="popular-destinations__list">
       @for (item of destination; track item.id) {
         <li class="popular-destinations__item">
@@ -17,10 +17,7 @@
               height="500"
             />
             <div class="popular-destinations__rating-box">
-              <fa-icon
-                class="popular-destinations__star"
-                [icon]="faStar"
-              ></fa-icon>
+              <fa-icon class="popular-destinations__star" [icon]="faStar" />
               <span class="popular-destinations__rating">{{
                 item.rating
               }}</span>

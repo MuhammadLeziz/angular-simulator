@@ -4,15 +4,12 @@
   </div>
   <div class="users__inner container">
     <h1 class="users__title">Список Пользователей</h1>
-    <app-usersfilter (filteredString)="filterCards($event)"></app-usersfilter>
+    <app-usersfilter (filteredString)="filterCards($event)" />
     @if (filteredUsers$ | async; as users) {
       @if (users.length) {
         <div class="users__list">
           @for (user of users; track user.id) {
-            <app-user-card
-              [user]="user"
-              (id)="deleteCard($event)"
-            ></app-user-card>
+            <app-user-card [user]="user" (id)="deleteCard($event)" />
           }
         </div>
       } @else {
@@ -21,4 +18,4 @@
     }
   </div>
 </section>
-<app-user-create (userCreated)="addUser($event)"></app-user-create>
+<app-user-create (userCreated)="addUser($event)" />

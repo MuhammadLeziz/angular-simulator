@@ -7,16 +7,14 @@
     <p class="m-0">{{ post.body }}</p>
     <ng-template #footer>
       <span class="text-sm text-surface-500 dark:text-surface-400"
-        >{{ post.reactions.likes }}
-        <fa-icon [icon]="faThumbsUp"> </fa-icon> </span
+        >{{ post.reactions.likes }} <fa-icon [icon]="faThumbsUp" /> </span
       ><br />
       <span class="text-sm text-surface-500 dark:text-surface-400"
-        >{{ post.reactions.dislikes }}
-        <fa-icon [icon]="faThumbsDown"> </fa-icon> </span
+        >{{ post.reactions.dislikes }} <fa-icon [icon]="faThumbsDown" /> </span
       ><br />
       <span class="text-sm text-surface-500 dark:text-surface-400"
-        >{{ post.views }} <fa-icon [icon]="faEye"> </fa-icon
-      ></span>
+        >{{ post.views }} <fa-icon [icon]="faEye"
+      /></span>
       <br />
       <span class="text-sm text-surface-500 dark:text-surface-400">{{
         post.userId
